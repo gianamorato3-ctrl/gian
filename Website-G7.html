@@ -1,0 +1,1464 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Save the Planet, Save our Future</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+  font-family:'Poppins',sans-serif;
+  color:white;
+  transition: background 1s ease;
+  scroll-behavior: smooth;
+  position:relative;
+  overflow-x:hidden;
+}
+
+/* BACKGROUND */
+body::before {
+  content:"";
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  z-index:-2;
+  background: linear-gradient(-45deg, 
+    #0C5B4E 0%,
+    #1D7F6C 15%,
+    #2BA89F 30%,
+    #3EC9B9 45%,
+    #56D7C4 60%,
+    #2BA89F 75%,
+    #1D7F6C 90%,
+    #0C5B4E 100%);
+  background-size:400% 400%;
+  animation: earthGradient 20s ease infinite;
+}
+
+@keyframes earthGradient {
+  0% {background-position: 0% 50%;}
+  25% {background-position: 50% 100%;}
+  50% {background-position: 100% 50%;}
+  75% {background-position: 50% 0%;}
+  100% {background-position: 0% 50%;}
+}
+
+/* OVERLAY EFFECT */
+body::after {
+  content:"";
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  z-index:-1;
+  background: linear-gradient(0deg, 
+    rgba(12,91,78,0.4) 0%,
+    rgba(29,127,108,0.3) 25%,
+    rgba(43,168,159,0.2) 50%,
+    rgba(29,127,108,0.3) 75%,
+    rgba(12,91,78,0.4) 100%);
+  animation: overlayFlow 15s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes overlayFlow {
+  0% {
+    background-position: 0% 0%;
+  }
+  50% {
+    background-position: 0% 100%;
+  }
+  100% {
+    background-position: 0% 0%;
+  }
+}
+
+/* SMOOTH DRIFT */
+.cloud-layer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 200%;
+  height: 100%;
+  z-index: -1;
+  pointer-events: none;
+  background-image: 
+    radial-gradient(ellipse 800px 400px at 20% 30%, rgba(255,255,255,0.12) 0%, transparent 40%),
+    radial-gradient(ellipse 900px 350px at 80% 60%, rgba(255,255,255,0.1) 0%, transparent 45%),
+    radial-gradient(ellipse 700px 380px at 50% 80%, rgba(255,255,255,0.08) 0%, transparent 50%),
+    radial-gradient(ellipse 600px 300px at 10% 70%, rgba(255,255,255,0.09) 0%, transparent 40%),
+    radial-gradient(ellipse 750px 320px at 90% 20%, rgba(255,255,255,0.11) 0%, transparent 45%);
+  animation: cloudsFloat 35s linear infinite;
+}
+
+@keyframes cloudsFloat {
+  0% {
+    transform: translateX(0) translateY(0);
+  }
+  50% {
+    transform: translateX(-30%) translateY(10px);
+  }
+  100% {
+    transform: translateX(-50%) translateY(0);
+  }
+}
+
+/* SECONDARY CLOUD LAYER FOR DEPTH */
+.cloud-layer-secondary {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 200%;
+  height: 100%;
+  z-index: -1;
+  pointer-events: none;
+  background-image: 
+    radial-gradient(ellipse 600px 300px at 25% 40%, rgba(255,255,255,0.06) 0%, transparent 50%),
+    radial-gradient(ellipse 700px 280px at 75% 50%, rgba(255,255,255,0.07) 0%, transparent 45%),
+    radial-gradient(ellipse 500px 250px at 50% 10%, rgba(255,255,255,0.08) 0%, transparent 50%);
+  animation: cloudsFloatReverse 45s linear infinite;
+}
+
+@keyframes cloudsFloatReverse {
+  0% {
+    transform: translateX(0) translateY(0);
+  }
+  50% {
+    transform: translateX(20%) translateY(-10px);
+  }
+  100% {
+    transform: translateX(0) translateY(0);
+  }
+}
+
+/* ANIMATED EARTH PARTICLES - SMOOTH FLOAT */
+.earth-particles {
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  z-index:-1;
+  pointer-events: none;
+}
+
+.particle {
+  position:absolute;
+  width:4px;
+  height:4px;
+  background:rgba(255,255,255,0.6);
+  border-radius:50%;
+  box-shadow: 0 0 8px rgba(154,203,208,0.5);
+  animation: float-particle 25s infinite ease-in-out;
+}
+
+.particle:nth-child(1) { left:10%; top:20%; animation-delay:0s; }
+.particle:nth-child(2) { left:20%; top:40%; animation-delay:2.5s; }
+.particle:nth-child(3) { left:30%; top:60%; animation-delay:5s; }
+.particle:nth-child(4) { left:40%; top:30%; animation-delay:1.5s; }
+.particle:nth-child(5) { left:50%; top:70%; animation-delay:4s; }
+.particle:nth-child(6) { left:60%; top:20%; animation-delay:6.5s; }
+.particle:nth-child(7) { left:70%; top:50%; animation-delay:3.5s; }
+.particle:nth-child(8) { left:80%; top:40%; animation-delay:5.5s; }
+.particle:nth-child(9) { left:90%; top:60%; animation-delay:2s; }
+.particle:nth-child(10) { left:15%; top:80%; animation-delay:4.5s; }
+
+@keyframes float-particle {
+  0% {
+    transform: translateY(0) translateX(0) scale(1);
+    opacity: 0.6;
+  }
+  25% {
+    transform: translateY(-40px) translateX(20px) scale(1.1);
+    opacity: 0.8;
+  }
+  50% {
+    transform: translateY(-80px) translateX(40px) scale(1.2);
+    opacity: 0.9;
+  }
+  75% {
+    transform: translateY(-40px) translateX(20px) scale(1.1);
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateY(0) translateX(0) scale(1);
+    opacity: 0.6;
+  }
+}
+
+/* HEADER */
+header{
+  text-align:center;
+  padding:80px 20px 40px;
+  position:relative;
+  z-index:5;
+}
+
+header h1{
+  color:#9ACBD0;
+  font-size:3rem;
+  text-shadow: 0 4px 15px rgba(0,0,0,0.5);
+  animation: slideDownFade 0.8s ease-out;
+}
+
+header p{
+  opacity:.95;
+  margin-bottom:20px;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.4);
+  animation: slideUpFade 0.8s ease-out 0.2s backwards;
+}
+
+@keyframes slideDownFade {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideUpFade {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* HEADER BUTTONS */
+.header-buttons{
+  margin-top:20px;
+  display:flex;
+  justify-content:center;
+  gap:20px;
+  flex-wrap:wrap;
+}
+
+.header-buttons button{
+  padding:10px 20px;
+  border:none;
+  border-radius:25px;
+  background:linear-gradient(135deg, #9ACBD0, #56D7C4);
+  color:#0f3057;
+  font-weight:bold;
+  cursor:pointer;
+  transition:all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(154,203,208,0.3);
+  animation: buttonAppear 0.6s ease-out 0.4s backwards;
+}
+
+@keyframes buttonAppear {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.header-buttons button:hover{
+  background: linear-gradient(135deg, #0f3057, #145374);
+  color:#9ACBD0;
+  transform:scale(1.08);
+  box-shadow: 0 8px 25px rgba(154,203,208,0.5);
+}
+
+/* TOP NAV */
+nav{
+  position:sticky;
+  top:0;
+  z-index:10;
+  background:linear-gradient(90deg, 
+    rgba(12,91,78,0.85) 0%,
+    rgba(29,127,108,0.85) 50%,
+    rgba(12,91,78,0.85) 100%);
+  backdrop-filter:blur(10px);
+  display:flex;
+  justify-content:center;
+  gap:40px;
+  padding:15px;
+  flex-wrap:wrap;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+  transition: all 0.3s ease;
+}
+
+nav a{
+  color:white;
+  text-decoration:none;
+  font-weight:500;
+  transition:all 0.3s ease;
+  padding:8px 15px;
+  border-radius:8px;
+  position:relative;
+  cursor:pointer;
+}
+
+nav a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #9ACBD0, #56D7C4);
+  transition: width 0.4s ease;
+}
+
+nav a:hover::after {
+  width: 100%;
+}
+
+nav a:hover{
+  color:#9ACBD0;
+  transform:translateY(-3px);
+}
+
+/* SECTION TITLE CARD */
+.section-title-card {
+  max-width:1200px;
+  margin:40px auto 0;
+  padding:0 20px;
+  position:relative;
+  z-index:5;
+}
+
+.section-card-content {
+  background:linear-gradient(135deg, 
+    rgba(12,91,78,0.75) 0%,
+    rgba(29,127,108,0.75) 50%,
+    rgba(12,91,78,0.75) 100%);
+  backdrop-filter:blur(15px);
+  border-radius:20px 20px 0 0;
+  padding:40px;
+  border:2px solid rgba(154,203,208,0.4);
+  border-bottom:none;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+  animation: cardSlideUp 0.6s ease-out;
+  transition: all 0.3s ease;
+}
+
+.section-card-content:hover {
+  background: linear-gradient(135deg, 
+    rgba(12,91,78,0.85) 0%,
+    rgba(29,127,108,0.85) 50%,
+    rgba(12,91,78,0.85) 100%);
+  border-color: rgba(154,203,208,0.6);
+}
+
+@keyframes cardSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.section-card-content h2 {
+  color:#9ACBD0;
+  font-size:2.5rem;
+  margin-bottom:15px;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.3);
+  transition: all 0.3s ease;
+}
+
+.section-card-content:hover h2 {
+  color: #56D7C4;
+  text-shadow: 0 4px 15px rgba(86,215,196,0.3);
+}
+
+.section-card-content .section-badge {
+  display:inline-block;
+  background:linear-gradient(135deg, #9ACBD0, #56D7C4);
+  color:#0f3057;
+  padding:6px 16px;
+  border-radius:20px;
+  font-size:0.8rem;
+  font-weight:bold;
+  margin-bottom:15px;
+  box-shadow: 0 4px 12px rgba(154,203,208,0.3);
+  transition: all 0.3s ease;
+}
+
+.section-card-content:hover .section-badge {
+  transform: scale(1.05);
+  box-shadow: 0 6px 16px rgba(154,203,208,0.5);
+}
+
+.section-card-content p {
+  color:rgba(255,255,255,0.95);
+  line-height:1.7;
+  font-size:1.1rem;
+  transition: all 0.3s ease;
+}
+
+/* PAGE LAYOUT */
+.wrapper{
+  display:flex;
+  max-width:1200px;
+  margin:0 auto;
+  gap:40px;
+  padding:40px 20px;
+  opacity:0;
+  transform: translateY(30px);
+  transition: opacity 1s ease, transform 1s ease;
+  position:relative;
+  z-index:5;
+  background:linear-gradient(135deg, 
+    rgba(12,91,78,0.55) 0%,
+    rgba(29,127,108,0.55) 50%,
+    rgba(12,91,78,0.55) 100%);
+  backdrop-filter:blur(15px);
+  border:1px solid rgba(154,203,208,0.25);
+  border-top:none;
+  transition: all 0.3s ease;
+}
+
+.wrapper:hover {
+  background: linear-gradient(135deg, 
+    rgba(12,91,78,0.65) 0%,
+    rgba(29,127,108,0.65) 50%,
+    rgba(12,91,78,0.65) 100%);
+  border-color: rgba(154,203,208,0.35);
+  box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+}
+
+.wrapper:last-of-type {
+  border-radius:0 0 20px 20px;
+  margin-bottom:60px;
+}
+
+/* LEFT SIDE NAV */
+.side-nav{
+  width:220px;
+  position:sticky;
+  top:120px;
+  height:fit-content;
+  background:linear-gradient(135deg, 
+    rgba(12,91,78,0.7) 0%,
+    rgba(29,127,108,0.7) 100%);
+  backdrop-filter:blur(10px);
+  border-radius:15px;
+  padding:20px;
+  border:1px solid rgba(154,203,208,0.4);
+  transition: all 0.3s ease;
+}
+
+.side-nav:hover {
+  background: linear-gradient(135deg, 
+    rgba(12,91,78,0.8) 0%,
+    rgba(29,127,108,0.8) 100%);
+  border-color: rgba(154,203,208,0.6);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+.side-nav h3{
+  color:#9ACBD0;
+  margin-bottom:15px;
+  font-size:1rem;
+  text-shadow: 0 2px 5px rgba(0,0,0,0.3);
+  transition: all 0.3s ease;
+}
+
+.side-nav:hover h3 {
+  color: #56D7C4;
+}
+
+.side-nav a{
+  display:block;
+  color:white;
+  text-decoration:none;
+  margin-bottom:12px;
+  font-size:.9rem;
+  padding:8px 12px;
+  border-radius:8px;
+  transition:all 0.3s ease;
+  border-left:3px solid transparent;
+  position:relative;
+}
+
+.side-nav a:hover{
+  color:#9ACBD0;
+  background:rgba(154,203,208,0.2);
+  border-left-color:#56D7C4;
+  padding-left:15px;
+  transform:translateX(5px);
+  box-shadow: inset 0 0 10px rgba(154,203,208,0.1);
+}
+
+/* CONTENT */
+.content{
+  flex:1;
+  transition: all 0.3s ease;
+}
+
+.content h2{
+  color:#9ACBD0;
+  margin:30px 0 15px;
+  padding-bottom:10px;
+  border-bottom:2px solid rgba(154,203,208,0.4);
+  text-shadow: 0 2px 5px rgba(0,0,0,0.3);
+  transition: all 0.3s ease;
+}
+
+.content h2:hover {
+  color: #56D7C4;
+  border-bottom-color: rgba(86,215,196,0.6);
+  text-shadow: 0 4px 10px rgba(86,215,196,0.2);
+}
+
+.content p{
+  line-height:1.7;
+  color:rgba(255,255,255,0.95);
+  transition: all 0.3s ease;
+}
+
+/* ADDITIONAL BUTTONS IN CONTENT */
+.content .action-buttons{
+  margin-top:20px;
+  display:flex;
+  gap:15px;
+  flex-wrap:wrap;
+}
+
+.content .action-buttons button{
+  padding:10px 20px;
+  border:2px solid #9ACBD0;
+  border-radius:20px;
+  background:rgba(15,48,87,0.6);
+  color:#9ACBD0;
+  font-weight:bold;
+  cursor:pointer;
+  transition:all 0.3s ease;
+}
+
+.content .action-buttons button:hover{
+  background:linear-gradient(135deg, #9ACBD0, #56D7C4);
+  color:#0f3057;
+  transform:scale(1.08);
+  box-shadow:0 8px 25px rgba(154,203,208,0.5);
+  border-color: #56D7C4;
+}
+
+/* IMAGE + TEXT */
+.flex{
+  display:flex;
+  gap:40px;
+  align-items:center;
+  flex-wrap:wrap;
+  margin:20px 0;
+  transition: all 0.3s ease;
+}
+
+.flex img{
+  width:280px;
+  border-radius:20px;
+  animation:float 6s ease-in-out infinite;
+  box-shadow:0 10px 35px rgba(0,0,0,0.4);
+  border:2px solid rgba(154,203,208,0.3);
+  transition: all 0.3s ease;
+}
+
+.flex img:hover {
+  border-color: rgba(154,203,208,0.6);
+  box-shadow: 0 15px 45px rgba(154,203,208,0.3);
+  transform: scale(1.03);
+}
+
+@keyframes float{
+  0%,100%{transform:translateY(0)}
+  50%{transform:translateY(-10px)}
+}
+
+/* MODAL STYLES */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.85);
+  animation: fadeIn 0.3s ease;
+  backdrop-filter: blur(5px);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.modal-content {
+  background: linear-gradient(135deg, 
+    rgba(12,91,78,0.98) 0%,
+    rgba(29,127,108,0.98) 50%,
+    rgba(12,91,78,0.98) 100%);
+  margin: 5% auto;
+  padding: 40px;
+  border: 2px solid rgba(154,203,208,0.5);
+  border-radius: 20px;
+  width: 90%;
+  max-width: 600px;
+  max-height: 80vh;
+  overflow-y: auto;
+  backdrop-filter: blur(20px);
+  box-shadow: 0 10px 60px rgba(0,0,0,0.6);
+  animation: slideIn 0.3s ease;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateY(-50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.modal-content h2 {
+  color: #9ACBD0;
+  margin-bottom: 20px;
+  font-size: 2rem;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.3);
+  transition: all 0.3s ease;
+}
+
+.modal-content p {
+  color: rgba(255,255,255,0.95);
+  line-height: 1.8;
+  margin-bottom: 15px;
+  transition: all 0.3s ease;
+}
+
+.modal-content ul {
+  color: rgba(255,255,255,0.95);
+  margin-left: 20px;
+  margin-bottom: 15px;
+}
+
+.modal-content li {
+  line-height: 1.8;
+  margin-bottom: 10px;
+  transition: all 0.3s ease;
+}
+
+.modal-content li:hover {
+  color: #9ACBD0;
+  padding-left: 5px;
+}
+
+.close-modal {
+  color: #9ACBD0;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.close-modal:hover,
+.close-modal:focus {
+  color: #56D7C4;
+  transform: scale(1.3) rotate(90deg);
+}
+
+.modal-footer {
+  margin-top: 30px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(154,203,208,0.3);
+  display: flex;
+  gap: 15px;
+  justify-content: flex-end;
+}
+
+.modal-footer button {
+  padding: 10px 25px;
+  border: none;
+  border-radius: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 0.95rem;
+}
+
+.modal-footer .close-btn {
+  background: rgba(154,203,208,0.3);
+  color: #9ACBD0;
+  border: 2px solid #9ACBD0;
+}
+
+.modal-footer .close-btn:hover {
+  background: #9ACBD0;
+  color: #0f3057;
+  transform: translateY(-3px);
+}
+
+.modal-footer .primary-btn {
+  background: linear-gradient(135deg, #9ACBD0, #56D7C4);
+  color: #0f3057;
+  border: none;
+}
+
+.modal-footer .primary-btn:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 30px rgba(154,203,208,0.5);
+}
+
+/* FOOTER */
+footer{
+  text-align:center;
+  padding:20px;
+  background:linear-gradient(90deg, 
+    rgba(12,91,78,0.75) 0%,
+    rgba(29,127,108,0.75) 50%,
+    rgba(12,91,78,0.75) 100%);
+  margin-top:60px;
+  position:relative;
+  z-index:5;
+  backdrop-filter:blur(10px);
+  border-top:1px solid rgba(154,203,208,0.3);
+  transition: all 0.3s ease;
+}
+
+footer:hover {
+  background: linear-gradient(90deg, 
+    rgba(12,91,78,0.85) 0%,
+    rgba(29,127,108,0.85) 50%,
+    rgba(12,91,78,0.85) 100%);
+}
+
+footer p{
+  opacity:0.9;
+  text-shadow: 0 2px 5px rgba(0,0,0,0.3);
+}
+
+/* PRESENTED BY */
+.presented{
+  max-width:1200px;
+  margin:100px auto;
+  padding:50px 20px;
+  text-align:center;
+  border-radius:25px;
+  background:linear-gradient(135deg, 
+    rgba(12,91,78,0.65) 0%,
+    rgba(29,127,108,0.65) 50%,
+    rgba(12,91,78,0.65) 100%);
+  position:relative;
+  z-index:5;
+  backdrop-filter:blur(10px);
+  border:1px solid rgba(154,203,208,0.3);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+  animation: cardSlideUp 0.8s ease-out;
+  transition: all 0.3s ease;
+}
+
+.presented:hover {
+  background: linear-gradient(135deg, 
+    rgba(12,91,78,0.75) 0%,
+    rgba(29,127,108,0.75) 50%,
+    rgba(12,91,78,0.75) 100%);
+  border-color: rgba(154,203,208,0.5);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.3);
+}
+
+.presented h3{
+  margin-bottom:40px;
+  color:#9ACBD0;
+  font-size:2rem;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.3);
+  transition: all 0.3s ease;
+}
+
+.presented:hover h3 {
+  color: #56D7C4;
+}
+
+.presented .team{
+  display:flex;
+  justify-content:center;
+  gap:40px;
+  flex-wrap:wrap;
+}
+
+.presented .member{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  transition:all 0.3s ease;
+  animation: memberSlide 0.6s ease-out backwards;
+}
+
+.presented .member:nth-child(1) { animation-delay: 0s; }
+.presented .member:nth-child(2) { animation-delay: 0.1s; }
+.presented .member:nth-child(3) { animation-delay: 0.2s; }
+.presented .member:nth-child(4) { animation-delay: 0.3s; }
+.presented .member:nth-child(5) { animation-delay: 0.4s; }
+
+@keyframes memberSlide {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.presented .member img{
+  width:100px;
+  height:100px;
+  object-fit:cover;
+  border-radius:50%;
+  margin-bottom:10px;
+  box-shadow:0 10px 35px rgba(0,0,0,0.5);
+  transition:.3s ease;
+  border:3px solid #9ACBD0;
+}
+
+.presented .member:hover{
+  transform:scale(1.15);
+}
+
+.presented .member:hover img{
+  box-shadow:0 15px 45px rgba(154,203,208,0.6);
+  border-color:#56D7C4;
+}
+
+.presented .member p{
+  font-weight:500;
+  color:#9ACBD0;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+  transition: all 0.3s ease;
+}
+
+.presented .member:hover p {
+  color: #56D7C4;
+}
+
+/* BACK TO TOP BUTTON */
+#backToTop{
+  position:fixed;
+  bottom:30px;
+  right:30px;
+  background:linear-gradient(135deg, rgba(154,203,208,0.9), rgba(86,215,196,0.9));
+  color:#0f3057;
+  padding:12px 16px;
+  border-radius:50px;
+  cursor:pointer;
+  font-weight:bold;
+  box-shadow:0 5px 25px rgba(0,0,0,0.4);
+  opacity:0;
+  transition:opacity 0.5s, transform 0.3s ease;
+  z-index:100;
+}
+
+#backToTop.show{
+  opacity:1;
+  transform:translateY(0);
+}
+
+#backToTop:hover{
+  background: linear-gradient(135deg, #56D7C4, #9ACBD0);
+  color:white;
+  transform:translateY(-8px);
+  box-shadow:0 12px 35px rgba(154,203,208,0.6);
+}
+
+/* PROGRESS BAR */
+.progress-bar{
+  position:fixed;
+  top:0;
+  left:0;
+  height:4px;
+  background:linear-gradient(90deg, #9ACBD0 0%, #56D7C4 50%, #3EC9B9 100%);
+  z-index:101;
+  transition:width 0.1s ease;
+  box-shadow: 0 2px 15px rgba(154,203,208,0.5);
+}
+
+/* MOBILE RESPONSIVE */
+@media(max-width:768px){
+  .wrapper{
+    flex-direction:column;
+  }
+  
+  .side-nav{
+    width:100%;
+    position:relative;
+    top:0;
+  }
+  
+  nav{
+    gap:15px;
+  }
+  
+  header h1{
+    font-size:2rem;
+  }
+  
+  .section-card-content h2 {
+    font-size:1.8rem;
+  }
+  
+  .flex{
+    flex-direction:column;
+  }
+  
+  .flex img{
+    width:100%;
+    max-width:280px;
+  }
+  
+  .presented .team{
+    gap:20px;
+  }
+
+  .modal-content {
+    width: 95%;
+    margin: 20% auto;
+    padding: 25px;
+  }
+}
+</style>
+</head>
+
+<body class="earth-background" id="home">
+
+<!-- FLOATING CLOUD LAYERS -->
+<div class="cloud-layer"></div>
+<div class="cloud-layer-secondary"></div>
+
+<!-- FLOATING PARTICLES -->
+<div class="earth-particles">
+  <div class="particle"></div>
+  <div class="particle"></div>
+  <div class="particle"></div>
+  <div class="particle"></div>
+  <div class="particle"></div>
+  <div class="particle"></div>
+  <div class="particle"></div>
+  <div class="particle"></div>
+  <div class="particle"></div>
+  <div class="particle"></div>
+</div>
+
+<!-- PROGRESS BAR -->
+<div class="progress-bar" id="progressBar"></div>
+
+<header>
+  <h1>Save the Planet, Save our Future</h1>
+  <p>Protect our planet today for a sustainable tomorrow.</p>
+  <div class="header-buttons">
+    <button onclick="document.getElementById('water').scrollIntoView({behavior:'smooth'})">Water Pollution</button>
+    <button onclick="document.getElementById('climate').scrollIntoView({behavior:'smooth'})">Climate Change</button>
+    <button onclick="document.getElementById('acid').scrollIntoView({behavior:'smooth'})">Acid Rain</button>
+    <button onclick="document.getElementById('forest').scrollIntoView({behavior:'smooth'})">Forests</button>
+  </div>
+</header>
+
+<nav>
+  <a onclick="scrollToHome()">Home</a>
+  <a href="#water">Water Pollution</a>
+  <a href="#climate">Climate Change</a>
+  <a href="#acid">Acid Deposition</a>
+  <a href="#forest">Forest & Water Resources</a>
+  <a href="#team">Our Team</a>
+</nav>
+
+<!-- WATER -->
+<section id="water" class="section-title-card">
+  <div class="section-card-content">
+    <span class="section-badge">SECTION 1 OF 4</span>
+    <h2>Water Pollution</h2>
+    <p>Understanding the causes, effects, and solutions to protect our precious water resources.</p>
+  </div>
+</section>
+
+<section class="wrapper">
+  <aside class="side-nav">
+    <h3>Water Pollution</h3>
+    <a href="#water-intro">Introduction</a>
+    <a href="#water-causes">Causes & Effects</a>
+    <a href="#water-help">How You Can Help</a>
+  </aside>
+  <div class="content">
+    <h2 id="water-intro">Introduction Overview</h2>
+    <p>Water pollution happens when harmful substances contaminate rivers, lakes, and oceans.</p>
+    <div class="action-buttons">
+      <button onclick="openModal('waterLearnModal')">Learn More</button>
+      <button onclick="openModal('waterActionModal')">Take Action</button>
+    </div>
+    <h2 id="water-causes">Causes and Effects</h2>
+    <div class="flex">
+      <img src="RT.jpg" alt="Water Pollution">
+      <p>Plastics, sewage, chemicals, and industrial waste damage ecosystems and threaten human health.</p>
+    </div>
+    <h2 id="water-help">How You Can Help</h2>
+    <div class="flex">
+      <img src="CA.jpg" alt="Clean Water Action">
+      <p>Reduce plastic use, recycle properly, conserve water, and support environmental programs.</p>
+    </div>
+  </div>
+</section>
+
+<!-- WATER LEARN MORE MODAL -->
+<div id="waterLearnModal" class="modal">
+  <div class="modal-content">
+    <span class="close-modal" onclick="closeModal('waterLearnModal')">&times;</span>
+    <h2>Water Pollution - Learn More</h2>
+    <p>Water pollution is a critical environmental crisis affecting billions of people worldwide. Our oceans, rivers, and freshwater sources are increasingly contaminated with harmful substances.</p>
+    
+    <h3 style="color: #9ACBD0; margin-top: 20px; margin-bottom: 10px;">Main Sources of Water Pollution:</h3>
+    <ul>
+      <li><strong>Plastic Waste:</strong> Over 8 million tons of plastic enter our oceans annually</li>
+      <li><strong>Industrial Discharge:</strong> Factories release toxic chemicals directly into water</li>
+      <li><strong>Agricultural Runoff:</strong> Fertilizers and pesticides contaminate groundwater</li>
+      <li><strong>Sewage:</strong> Untreated wastewater introduces harmful bacteria and pathogens</li>
+      <li><strong>Oil Spills:</strong> Marine disasters cause catastrophic ecosystem damage</li>
+    </ul>
+
+    <p style="margin-top: 20px;">The consequences are devastating: aquatic ecosystems collapse, food chains are disrupted, and humans lose access to clean drinking water. Marine animals suffer from poisoning, entanglement, and habitat destruction.</p>
+
+    <div class="modal-footer">
+      <button class="close-btn" onclick="closeModal('waterLearnModal')">Close</button>
+      <button class="primary-btn" onclick="openModal('waterActionModal')">Take Action Now</button>
+    </div>
+  </div>
+</div>
+
+<!-- WATER TAKE ACTION MODAL -->
+<div id="waterActionModal" class="modal">
+  <div class="modal-content">
+    <span class="close-modal" onclick="closeModal('waterActionModal')">&times;</span>
+    <h2>Take Action - Water Pollution</h2>
+    <p>Every action counts! Here are practical steps you can take today to help reduce water pollution:</p>
+    
+    <h3 style="color: #9ACBD0; margin-top: 20px; margin-bottom: 10px;">What You Can Do Right Now:</h3>
+    <ul>
+      <li><strong>Reduce Plastic Use:</strong> Switch to reusable bags, bottles, and containers</li>
+      <li><strong>Proper Disposal:</strong> Never litter - dispose of waste in designated bins</li>
+      <li><strong>Use Eco-friendly Products:</strong> Choose biodegradable soaps and detergents</li>
+      <li><strong>Conserve Water:</strong> Fix leaks, take shorter showers, turn off taps</li>
+      <li><strong>Volunteer:</strong> Join local beach and river cleanup initiatives</li>
+      <li><strong>Support Legislation:</strong> Vote for environmental protection policies</li>
+      <li><strong>Educate Others:</strong> Spread awareness about water pollution</li>
+    </ul>
+
+    <h3 style="color: #9ACBD0; margin-top: 20px; margin-bottom: 10px;">Join These Organizations:</h3>
+    <ul>
+      <li>World Wildlife Fund (WWF)</li>
+      <li>Ocean Conservancy</li>
+      <li>The Nature Conservancy</li>
+      <li>Local environmental groups in your community</li>
+    </ul>
+
+    <div class="modal-footer">
+      <button class="close-btn" onclick="closeModal('waterActionModal')">Close</button>
+    </div>
+  </div>
+</div>
+
+<!-- CLIMATE -->
+<section id="climate" class="section-title-card">
+  <div class="section-card-content">
+    <span class="section-badge">SECTION 2 OF 4</span>
+    <h2>Climate Change</h2>
+    <p>Exploring how global warming affects our planet and what we can do to reverse the damage.</p>
+  </div>
+</section>
+
+<section class="wrapper">
+  <aside class="side-nav">
+    <h3>Climate Change</h3>
+    <a href="#climate-intro">Introduction</a>
+    <a href="#climate-causes">Causes & Effects</a>
+    <a href="#climate-help">How You Can Help</a>
+  </aside>
+  <div class="content">
+    <h2 id="climate-intro">Introduction Overview</h2>
+    <p>Climate change affects water availability by altering rainfall patterns and increasing extreme weather.</p>
+    <div class="action-buttons">
+      <button onclick="openModal('climateLearnModal')">Learn More</button>
+      <button onclick="openModal('climateActionModal')">Take Action</button>
+    </div>
+    <h2 id="climate-causes">Causes and Effects</h2>
+    <div class="flex">
+      <img src="C.jpg" alt="Climate Change">
+      <p>Floods spread pollution while droughts reduce clean water, harming communities and ecosystems.</p>
+    </div>
+    <h2 id="climate-help">How You Can Help</h2>
+    <div class="flex">
+      <img src="Ac.jpg" alt="Climate Action">
+      <p>Save energy, reduce emissions, and support sustainable living.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CLIMATE LEARN MORE MODAL -->
+<div id="climateLearnModal" class="modal">
+  <div class="modal-content">
+    <span class="close-modal" onclick="closeModal('climateLearnModal')">&times;</span>
+    <h2>Climate Change - Learn More</h2>
+    <p>Climate change is the defining challenge of our time. Rising global temperatures are melting ice caps, raising sea levels, and causing increasingly severe weather events.</p>
+    
+    <h3 style="color: #9ACBD0; margin-top: 20px; margin-bottom: 10px;">Key Climate Impact Facts:</h3>
+    <ul>
+      <li><strong>Temperature Rise:</strong> Global temperatures have increased by 1.1°C since pre-industrial times</li>
+      <li><strong>Carbon Emissions:</strong> CO2 levels are at their highest in 3 million years</li>
+      <li><strong>Extreme Weather:</strong> Hurricanes, droughts, and floods are becoming more frequent and intense</li>
+      <li><strong>Ecosystem Collapse:</strong> Species extinction rates are accelerating</li>
+      <li><strong>Food Security:</strong> Crop yields are declining in many regions</li>
+    </ul>
+
+    <p style="margin-top: 20px;">The primary cause is greenhouse gas emissions from burning fossil fuels, deforestation, and industrial processes. Without urgent action, we face catastrophic consequences for human civilization.</p>
+
+    <div class="modal-footer">
+      <button class="close-btn" onclick="closeModal('climateLearnModal')">Close</button>
+      <button class="primary-btn" onclick="openModal('climateActionModal')">Take Action Now</button>
+    </div>
+  </div>
+</div>
+
+<!-- CLIMATE TAKE ACTION MODAL -->
+<div id="climateActionModal" class="modal">
+  <div class="modal-content">
+    <span class="close-modal" onclick="closeModal('climateActionModal')">&times;</span>
+    <h2>⚡ Take Action - Climate Change</h2>
+    <p>Combat climate change by making sustainable choices in your daily life:</p>
+    
+    <h3 style="color: #9ACBD0; margin-top: 20px; margin-bottom: 10px;">Personal Actions:</h3>
+    <ul>
+      <li><strong>Energy Efficiency:</strong> Switch to LED bulbs and renewable energy</li>
+      <li><strong>Transportation:</strong> Walk, bike, use public transit, or go electric</li>
+      <li><strong>Diet Changes:</strong> Reduce meat consumption, eat more plant-based foods</li>
+      <li><strong>Consumption:</strong> Buy less, choose quality over quantity</li>
+      <li><strong>Home:</strong> Improve insulation, use smart thermostats</li>
+    </ul>
+
+    <h3 style="color: #9ACBD0; margin-top: 20px; margin-bottom: 10px;">Advocacy & Community:</h3>
+    <ul>
+      <li>Support renewable energy projects</li>
+      <li>Vote for climate-conscious politicians</li>
+      <li>Join climate action organizations</li>
+      <li>Participate in environmental protests and movements</li>
+      <li>Educate family and friends about climate science</li>
+    </ul>
+
+    <div class="modal-footer">
+      <button class="close-btn" onclick="closeModal('climateActionModal')">Close</button>
+    </div>
+  </div>
+</div>
+
+<!-- ACID -->
+<section id="acid" class="section-title-card">
+  <div class="section-card-content">
+    <span class="section-badge">SECTION 3 OF 4</span>
+    <h2>Acid Deposition</h2>
+    <p>Learn about acid rain and its devastating effects on our forests, water, and wildlife.</p>
+  </div>
+</section>
+
+<section class="wrapper">
+  <aside class="side-nav">
+    <h3>Acid Deposition</h3>
+    <a href="#acid-intro">Introduction</a>
+    <a href="#acid-causes">Causes & Effects</a>
+    <a href="#acid-help">How You Can Help</a>
+  </aside>
+  <div class="content">
+    <h2 id="acid-intro">Introduction Overview</h2>
+    <p>Acid deposition occurs when acidic pollutants fall as rain or particles, while global warming traps heat in the atmosphere.</p>
+    <div class="action-buttons">
+      <button onclick="openModal('acidLearnModal')">Learn More</button>
+      <button onclick="openModal('acidActionModal')">Take Action</button>
+    </div>
+    <h2 id="acid-causes">Causes and Effects</h2>
+    <div class="flex">
+      <img src="acid.jpg" alt="Acid Rain">
+      <p>Burning fossil fuels releases gases that damage forests, soil, water bodies, and raise global temperatures.</p>
+    </div>
+    <h2 id="acid-help">How You Can Help</h2>
+    <div class="flex">
+      <img src="solution.jpg" alt="Solutions">
+      <p>Use renewable energy, plant trees, and support environmental policies.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ACID LEARN MORE MODAL -->
+<div id="acidLearnModal" class="modal">
+  <div class="modal-content">
+    <span class="close-modal" onclick="closeModal('acidLearnModal')">&times;</span>
+    <h2>Acid Deposition - Learn More</h2>
+    <p>Acid rain and acid deposition are serious environmental problems caused by air pollution. When sulfur dioxide and nitrogen oxides are released into the atmosphere, they can be converted to sulfuric and nitric acids.</p>
+    
+    <h3 style="color: #9ACBD0; margin-top: 20px; margin-bottom: 10px;">Effects of Acid Deposition:</h3>
+    <ul>
+      <li><strong>Forest Damage:</strong> Acid rain weakens trees and prevents nutrient uptake</li>
+      <li><strong>Water Acidification:</strong> Lakes and streams become too acidic for fish to survive</li>
+      <li><strong>Soil Degradation:</strong> Nutrients are leached away, reducing fertility</li>
+      <li><strong>Structural Damage:</strong> Acid corrodes buildings, bridges, and monuments</li>
+      <li><strong>Human Health:</strong> Respiratory problems from air pollution that causes acid rain</li>
+    </ul>
+
+    <p style="margin-top: 20px;">The primary sources are coal-fired power plants and vehicle emissions. Countries downwind of pollution sources suffer disproportionately from this transboundary environmental problem.</p>
+
+    <div class="modal-footer">
+      <button class="close-btn" onclick="closeModal('acidLearnModal')">Close</button>
+      <button class="primary-btn" onclick="openModal('acidActionModal')">Take Action Now</button>
+    </div>
+  </div>
+</div>
+
+<!-- ACID TAKE ACTION MODAL -->
+<div id="acidActionModal" class="modal">
+  <div class="modal-content">
+    <span class="close-modal" onclick="closeModal('acidActionModal')">&times;</span>
+    <h2>Take Action - Acid Deposition</h2>
+    <p>Help reduce acid rain by lowering your contribution to air pollution:</p>
+    
+    <h3 style="color: #9ACBD0; margin-top: 20px; margin-bottom: 10px;">Reduce Emissions:</h3>
+    <ul>
+      <li><strong>Drive Less:</strong> Carpool, use public transit, or cycle</li>
+      <li><strong>Energy Conservation:</strong> Use less electricity and fossil fuels</li>
+      <li><strong>Home Heating:</strong> Maintain HVAC systems and improve efficiency</li>
+      <li><strong>Consumer Choices:</strong> Buy from companies with clean manufacturing</li>
+      <li><strong>Renewable Energy:</strong> Switch to solar, wind, or green power providers</li>
+    </ul>
+
+    <h3 style="color: #9ACBD0; margin-top: 20px; margin-bottom: 10px;">Support Solutions:</h3>
+    <ul>
+      <li>Advocate for cleaner air standards</li>
+      <li>Plant trees to absorb pollutants and restore forests</li>
+      <li>Support acid rain monitoring programs</li>
+      <li>Choose low-sulfur products when available</li>
+      <li>Support clean energy transitions</li>
+    </ul>
+
+    <div class="modal-footer">
+      <button class="close-btn" onclick="closeModal('acidActionModal')">Close</button>
+    </div>
+  </div>
+</div>
+
+<!-- FOREST -->
+<section id="forest" class="section-title-card">
+  <div class="section-card-content">
+    <span class="section-badge">SECTION 4 OF 4</span>
+    <h2>Forest & Water Resources</h2>
+    <p>Discover the vital connection between forests and water, and how to preserve both.</p>
+  </div>
+</section>
+
+<section class="wrapper">
+  <aside class="side-nav">
+    <h3>Forest & Water Resources</h3>
+    <a href="#forest-intro">Introduction</a>
+    <a href="#forest-causes">Causes & Effects</a>
+    <a href="#forest-help">How You Can Help</a>
+  </aside>
+  <div class="content">
+    <h2 id="forest-intro">Introduction Overview</h2>
+    <p>Forests and water resources are deeply connected. Forests help maintain the water cycle, prevent flooding, and keep water clean.</p>
+    <div class="action-buttons">
+      <button onclick="openModal('forestLearnModal')">Learn More</button>
+      <button onclick="openModal('forestActionModal')">Take Action</button>
+    </div>
+    <h2 id="forest-causes">Causes and Effects</h2>
+    <div class="flex">
+      <img src="FOO.jpg" alt="Forest and Water">
+      <p>Deforestation, illegal logging, and land conversion reduce tree cover and disrupt the natural water cycle, causing floods, soil erosion, and water shortages.</p>
+    </div>
+    <h2 id="forest-help">How You Can Help</h2>
+    <div class="flex">
+      <img src="PL.jpg" alt="Plant Trees">
+      <p>Plant trees, conserve water, avoid illegal logging, and support forest conservation programs.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FOREST LEARN MORE MODAL -->
+<div id="forestLearnModal" class="modal">
+  <div class="modal-content">
+    <span class="close-modal" onclick="closeModal('forestLearnModal')">&times;</span>
+    <h2>Forests & Water - Learn More</h2>
+    <p>Forests are the lungs of our planet and the guardians of our water. They regulate the water cycle, prevent erosion, and maintain biodiversity. Yet we're losing forests at an alarming rate.</p>
+    
+    <h3 style="color: #9ACBD0; margin-top: 20px; margin-bottom: 10px;">The Forest-Water Connection:</h3>
+    <ul>
+      <li><strong>Water Filtration:</strong> Forests filter rainwater, creating clean groundwater</li>
+      <li><strong>Flood Prevention:</strong> Trees absorb water, reducing flood risks</li>
+      <li><strong>Water Storage:</strong> Forests act as natural water reservoirs</li>
+      <li><strong>Climate Regulation:</strong> Trees release moisture, affecting local rainfall patterns</li>
+      <li><strong>Biodiversity:</strong> Forests support 80% of terrestrial species</li>
+    </ul>
+
+    <h3 style="color: #9ACBD0; margin-top: 20px; margin-bottom: 10px;">The Crisis:</h3>
+    <ul>
+      <li>We lose 10 billion trees annually</li>
+      <li>Deforestation causes floods, droughts, and water pollution</li>
+      <li>Forest loss accelerates climate change</li>
+      <li>Indigenous communities depend on forests for survival</li>
+    </ul>
+
+    <div class="modal-footer">
+      <button class="close-btn" onclick="closeModal('forestLearnModal')">Close</button>
+      <button class="primary-btn" onclick="openModal('forestActionModal')">Take Action Now</button>
+    </div>
+  </div>
+</div>
+
+<!-- FOREST TAKE ACTION MODAL -->
+<div id="forestActionModal" class="modal">
+  <div class="modal-content">
+    <span class="close-modal" onclick="closeModal('forestActionModal')">&times;</span>
+    <h2>🌱 Take Action - Save Our Forests</h2>
+    <p>Protect our forests and water resources through these actionable steps:</p>
+    
+    <h3 style="color: #9ACBD0; margin-top: 20px; margin-bottom: 10px;">Direct Actions:</h3>
+    <ul>
+      <li><strong>Plant Trees:</strong> Participate in tree-planting initiatives</li>
+      <li><strong>Support Forest Reserves:</strong> Donate to or volunteer with conservation groups</li>
+      <li><strong>Reduce Paper Use:</strong> Go digital and recycle paper products</li>
+      <li><strong>Sustainable Wood:</strong> Buy FSC-certified wood products only</li>
+      <li><strong>Protect Watersheds:</strong> Support water conservation in forested areas</li>
+    </ul>
+
+    <h3 style="color: #9ACBD0; margin-top: 20px; margin-bottom: 10px;">Systemic Change:</h3>
+    <ul>
+      <li>Support indigenous land rights (they protect forests best)</li>
+      <li>Vote for forest protection policies</li>
+      <li>Pressure companies to eliminate deforestation supply chains</li>
+      <li>Join organizations fighting illegal logging</li>
+      <li>Educate others about forest importance</li>
+    </ul>
+
+    <div class="modal-footer">
+      <button class="close-btn" onclick="closeModal('forestActionModal')">Close</button>
+    </div>
+  </div>
+</div>
+
+<!-- PRESENTED BY -->
+<section id="team" class="presented">
+  <h3>Presented by Group 7</h3>
+  <div class="team">
+    <div class="member"><img src="frank.jpg" alt="Frank Cendo Barrientos"><p>Frank Cendo Barrientos</p></div>
+    <div class="member"><img src="gian.jpg" alt="JanGian Rei Amorato"><p>JanGian Rei Amorato</p></div>
+    <div class="member"><img src="cesar.jpg" alt="Cesar Lina"><p>Cesar Lina</p></div>
+    <div class="member"><img src="kenneth.jpg" alt="Johnkenneth Gamotea"><p>Johnkenneth Gamotea</p></div>
+    <div class="member"><img src="kervin.jpg" alt="Kervin James Gaco"><p>Kervin James Gaco</p></div>
+  </div>
+</section>
+
+<!-- BACK TO TOP BUTTON -->
+<div id="backToTop">↑ Top</div>
+
+<footer>
+<p>© 2026 Save the Planet, Save our Future | GET-ENVIRONMENTAL SCIENCE</p>
+</footer>
+
+<script>
+// Scroll to home function
+function scrollToHome() {
+  document.getElementById('home').scrollIntoView({behavior: 'smooth'});
+}
+
+// Modal functions
+function openModal(modalId) {
+  document.getElementById(modalId).style.display = "block";
+  document.body.style.overflow = "hidden";
+}
+
+function closeModal(modalId) {
+  document.getElementById(modalId).style.display = "none";
+  document.body.style.overflow = "auto";
+}
+
+// Close modal when clicking outside of it
+window.onclick = function(event) {
+  if (event.target.classList.contains('modal')) {
+    event.target.style.display = "none";
+    document.body.style.overflow = "auto";
+  }
+}
+
+// Section animation
+const sections = document.querySelectorAll('.wrapper');
+const options = { threshold: 0.3 };
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if(entry.isIntersecting){
+      entry.target.style.opacity = 1;
+      entry.target.style.transform = 'translateY(0)';
+    }
+  });
+}, options);
+
+sections.forEach(section => observer.observe(section));
+
+// Back to Top
+const backToTop = document.getElementById("backToTop");
+
+window.addEventListener("scroll", () => {
+  if(window.scrollY > 300){
+    backToTop.classList.add("show");
+  }else{
+    backToTop.classList.remove("show");
+  }
+});
+
+backToTop.addEventListener("click", () => {
+  window.scrollTo({top:0, behavior:"smooth"});
+});
+
+// Progress Bar
+const progressBar = document.getElementById("progressBar");
+
+window.addEventListener("scroll", () => {
+  const scrollPercent = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
+  progressBar.style.width = scrollPercent + "%";
+});
+
+// Smooth scrolling for anchor links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function (e) {
+    const href = this.getAttribute('href');
+    if (href !== '#' && document.querySelector(href)) {
+      e.preventDefault();
+      document.querySelector(href).scrollIntoView({
+        behavior: 'smooth'
+      });
+    }
+  });
+});
+</script>
+
+</body>
+</html>
