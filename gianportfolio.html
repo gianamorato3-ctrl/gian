@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>My Portfolio</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      color: #333;
+    }
+
+    nav {
+      background-color: #2e4057;
+      padding: 12px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    nav .logo {
+      color: #f5a623;
+      font-size: 18px;
+      font-weight: bold;
+      letter-spacing: 2px;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+    }
+
+    nav ul li a {
+      color: #ccc;
+      text-decoration: none;
+      font-size: 13px;
+    }
+
+    nav ul li a:hover {
+      color: #f5a623;
+    }
+
+    header {
+      background-color: #2e4057;
+      color: white;
+      text-align: center;
+      padding: 50px 20px;
+    }
+
+    .avatar {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      border: 3px solid #f5a623;
+      object-fit: cover;
+      display: block;
+      margin: 0 auto 15px auto;
+    }
+
+    header h1 {
+      font-size: 24px;
+      margin-bottom: 6px;
+    }
+
+    header p {
+      font-size: 13px;
+      color: #aaa;
+    }
+
+    section {
+      max-width: 720px;
+      margin: 25px auto;
+      background-color: white;
+      padding: 25px;
+      border: 1px solid #ddd;
+      border-left: 4px solid #f5a623;
+    }
+
+    section h2 {
+      font-size: 16px;
+      color: #2e4057;
+      margin-bottom: 15px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    section p {
+      font-size: 14px;
+      line-height: 1.8;
+      color: #444;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 14px;
+    }
+
+    table td {
+      padding: 8px 10px;
+      border: 1px solid #ddd;
+    }
+
+    table td:first-child {
+      background-color: #f9f9f9;
+      font-weight: bold;
+      width: 35%;
+      color: #2e4057;
+    }
+
+    ul.skills {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    ul.skills li {
+      background-color: #2e4057;
+      color: white;
+      padding: 6px 14px;
+      font-size: 13px;
+      border-radius: 4px;
+    }
+
+    ul.skills li span {
+      background-color: #f5a623;
+      color: white;
+      font-size: 11px;
+      padding: 2px 6px;
+      border-radius: 3px;
+      margin-left: 6px;
+    }
+
+    footer {
+      background-color: #2e4057;
+      color: #aaa;
+      text-align: center;
+      padding: 15px;
+      font-size: 13px;
+      margin-top: 30px;
+    }
+
+    footer span {
+      color: #f5a623;
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="logo">My Portfolio</div>
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#details">Details</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#inspiration">Inspiration</a></li>
+    </ul>
+  </nav>
+
+  <header>
+    <img class="avatar" src="https://uploads.onecompiler.io/442u9kyun/44m7rajk8/1000003609_a36943c65f26b8e1165b34bb80d4492f-1_30_2025,%208_58_59%20AM_20260407_093359_0000.jpg">
+    <h1>Jan Gian Rei V. Amorato</h1>
+    <p>BS Information Technology</p>
+  </header>
+
+  <section id="about">
+    <h2>About Me</h2>
+    <p>
+      Hey, I'm Jan Gian! I'm 18 years old and currently studying BS Information Technology
+      at Our Lady of the Sacred Heart College of Guimba, Inc. I really enjoy learning about
+      technology, and I'm excited to see where it takes me. Right now I'm focused on building
+      my skills little by little, and I'm looking forward to creating things I can actually
+      be proud of someday.
+    </p>
+  </section>
+
+  <section id="details">
+    <h2>Personal Details</h2>
+    <table>
+      <tr><td>Full Name</td><td>Jan Gian Rei V. Amorato</td></tr>
+      <tr><td>Age</td><td>18</td></tr>
+      <tr><td>Email</td><td>gianamorato3@gmail.com</td></tr>
+      <tr><td>Address</td><td>Faigal, Guimba, Nueva Ecija</td></tr>
+    </table>
+  </section>
+
+  <section id="skills">
+    <h2>Skills / Programming Languages</h2>
+    <ul class="skills">
+      <li>HTML <span>Beginner</span></li>
+      <li>CSS <span>Beginner</span></li>
+      <li>JavaScript <span>Beginner</span></li>
+    </ul>
+  </section>
+
+  <section id="inspiration">
+    <h2>Inspiration as a Programmer</h2>
+    <p>
+      Ever since I was young, I loved playing video games. But after a while, I started
+      thinking how do people actually make these? The more I played, the more curious I got
+      about what's behind it all. And one day I just thought to myself: I want to make my own
+      game someday. That's honestly why I chose IT. It felt like the right path to get there.
+      I'm still learning a lot, but that goal keeps me going.
+    </p>
+  </section>
+
+  <footer>
+    &copy; 2026 <span>Jan Gian Rei V. Amorato</span>. All rights reserved.
+  </footer>
+
+</body>
+</html>
